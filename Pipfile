@@ -1,0 +1,18 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[dev-packages]
+
+[packages]
+ipython = "*"
+pytest = "*"
+pytest-cache = "*"
+"pytest-pep8" = "*"
+pycodestyle = "*"
+pylint = "*"
+coverage = "*"
+
+[requires]
+python_version = "3.5"
