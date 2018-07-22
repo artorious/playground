@@ -78,9 +78,3 @@ if __name__ == '__main__':
     if not os.path.exists("music_list.db"):
         create_database()
     
-    print(select_all_albums('Andy Hunter'))
-    delete_artist('Andy Hunter')
-    print(select_all_albums('Andy Hunter'))
-    update_artist('Red', 'Redder')
-    print(select_all_albums('Redder'))
-
