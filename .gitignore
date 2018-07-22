@@ -4,4 +4,9 @@ __pycache__/
 
 # unit test / coverage reports 
 .pytest_cache/
+.coverage
+htmlcov/
+
+# Vim stuff 
+.*.sw[op]
 
