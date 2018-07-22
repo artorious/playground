@@ -25,19 +25,24 @@ def create_database():
         "'Xplore Records', 'MP3')")
     # Save data to database
     conn.commit()
-    # Insert multiple records using th more secure "?" method
-    albums = [
-        ('Exodus', 'Andy Hunter', '7/9/2002', 'Sparrow Records', 'CD'),
-        ('Until We Have Faces', 'Red', '2/1/2011', 'Essential Records', 'CD'),
-        ('Chronology', 'Chronixx', '01/01/2017', 'Independent', 'MP3'),
-        ('Section 8.0', 'Kendricl lamar', '01/01/2012', 'TDE', 'MP3')
-    ]
-    cursor.executemany("INSERT INTO albums VALUES (?,?,?,?,?)", albums)
-    conn.commit()
+    
+def select_all_albums(artist):
+    """ Query the database for all the albums by a particular artist """
+    conn = sqlite3.connect("music_list.db")
+    cursor = conn.cursor()
+
+    sql = "SELECT * FROM albums WHERE artist=?"
+    cursor.execute(sql, [(artist)])
+    result = cursor.fetchall()
+    cursor.close()
+    conn.close()
+    return result
 
 
 if __name__ == '__main__':
     import os
     if not os.path.exists("music_list.db"):
         create_database()
+    
+    print(select_all_albums('Chronixx'))
 
