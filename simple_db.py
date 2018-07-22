@@ -61,6 +61,16 @@ def delete_artist(artist):
     cursor.close()
     conn.close()
 
+def update_artist(artist, new_name):
+    """ Update the artist name """
+    conn =  sqlite3.connect("music_list.db")
+    cursor = conn.cursor()
+
+    sql = "UPDATE albums SET artist = ? WHERE artist = ?"
+    cursor.execute(sql, (new_name, artist))
+    conn.commit()
+    cursor.close()
+    conn.close()
 
 
 if __name__ == '__main__':
@@ -71,4 +81,6 @@ if __name__ == '__main__':
     print(select_all_albums('Andy Hunter'))
     delete_artist('Andy Hunter')
     print(select_all_albums('Andy Hunter'))
+    update_artist('Red', 'Redder')
+    print(select_all_albums('Redder'))
 
