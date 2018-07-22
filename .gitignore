@@ -7,4 +7,6 @@ __pycache__/
 .coverage
 htmlcov/
 
+# Vim stuff 
+.*.sw[op]
 
